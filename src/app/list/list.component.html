@@ -1,0 +1,31 @@
+
+<br>
+<div class="container">
+  <div class="row">
+    <input class="form-control mr-sm-2" type="search" [(ngModel)] ="name"  placeholder="Search" aria-label="Search">
+    <br>
+
+  <table class="table  table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th >Name</th>
+          <th >phone</th>
+          <th >Email</th>
+          <th >website</th>
+          <th >Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of tableData | search:name ">
+          <td>{{data.name}}</td>
+          <td>{{data.phone}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.website}}</td>
+          <td><button type="button" class="btn btn-outline-primary" [routerLink] = "['/post/', data.id]">Post</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>
